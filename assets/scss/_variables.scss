@@ -1,0 +1,23 @@
+// Colors
+$primary-color: #2563EB;
+$primary-hover: #1D4ED8;
+$secondary-color: #F3F4F6;
+$secondary-hover: #E5E7EB;
+$text-primary: #000831;
+$text-secondary: #565656;
+$text-tertiary: #999C9F;
+$border-color: #DDDDDD;
+$input-bg: #ECF0FC33;
+
+// CSS Custom Properties
+:root {
+  --primary-color: #{$primary-color};
+  --primary-hover: #{$primary-hover};
+  --secondary-color: #{$secondary-color};
+  --secondary-hover: #{$secondary-hover};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-tertiary: #{$text-tertiary};
+  --border-color: #{$border-color};
+  --input-bg: #{$input-bg};
+} 
