@@ -4,13 +4,13 @@
       <Sidebar />
       
       <!-- Main Content -->
-      <div class="flex-1 overflow-hidden">
+      <div class="flex-1 p-6 overflow-hidden">
         <!-- Header -->
         <Header />
         
         <!-- Page Content -->
-        <div class="p-6">
-          <slot></slot>
+        <div class="mt-8">
+          <NuxtPage />
         </div>
       </div>
     </div>

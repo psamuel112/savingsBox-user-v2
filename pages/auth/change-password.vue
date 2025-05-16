@@ -61,6 +61,7 @@
 import InputField from '~/components/common/InputField.vue'
 import Button from '~/components/common/Button.vue'
 import { ref, computed } from 'vue'
+const router = useRouter()
 
 const form = ref({
   password: '',

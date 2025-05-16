@@ -44,7 +44,7 @@
         <div class="mt-6 text-center">
           <p class="text-[#565656] text-[14px] md:text-[16px]">
             Don't have an account?
-            <NuxtLink to="/signup" class="text-[#4169E6] text-[14px] md:text-[16px]  hover:underline">Sign Up</NuxtLink>
+            <NuxtLink to="/auth/signup" class="text-[#4169E6] text-[14px] md:text-[16px]  hover:underline">Sign Up</NuxtLink>
           </p>
         </div>
       </div>
@@ -56,6 +56,7 @@
 import InputField from '~/components/common/InputField.vue'
 import Button from '~/components/common/Button.vue'
 import { ref } from 'vue'
+const router = useRouter()
 
 const form = ref({
   email: '',
@@ -68,6 +69,7 @@ const togglePassword = () => {
 const handleLogin = () => {
   // Handle login logic here
   console.log('Login:', form.value)
+  router.push('/auth/2fa')
 }
 </script>
 

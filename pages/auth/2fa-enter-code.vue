@@ -24,14 +24,14 @@
           <button class="text-[#4169E6] text-[14px] md:text-[16px] font-medium hover:underline mb-2">Send code to phone number</button>
         </div>
         <!-- OTP Inputs -->
-        <form class="flex flex-col items-center" @submit.prevent>
+        <form class="flex flex-col items-center" @submit.prevent="submit">
           <OtpInput v-model="otp" :length="4" class="mb-4" />
           <div class="mb-6 text-[#7A7A7A] text-[14px] md:text-[16px]">
             Didn't recieve any code
             <button type="button" class="text-[#4169E6] font-medium hover:underline ml-1">Resend Code</button>
           </div>
-          <Button type="submit" variant="primary" :className="'!bg-[#D9D9D9] !text-[#A1A1A1] cursor-not-allowed'"
-            :disabled="otp.length !== 6">
+          <Button type="submit" variant="primary" :className="'!bg-[#D9D9D9] !text-[#A1A1A1]'"
+          >
             Confirm
           </Button>
         </form>
@@ -44,7 +44,10 @@
 import Button from '~/components/common/Button.vue'
 import OtpInput from '~/components/common/OtpInput.vue'
 import { ref } from 'vue'
-
+const router = useRouter()
+function submit() {
+  router.push('/auth/2fa-success')
+}
 const otp = ref('')
 </script>
 

@@ -36,6 +36,7 @@
 import InputField from '~/components/common/InputField.vue'
 import Button from '~/components/common/Button.vue'
 import { ref } from 'vue'
+const router = useRouter()
 
 const form = ref({
     email: '',
@@ -48,6 +49,7 @@ const togglePassword = () => {
 const handleLogin = () => {
     // Handle login logic here
     console.log('Login:', form.value)
+    router.push('/auth/reset-password')
 }
 </script>
 

@@ -33,7 +33,7 @@ import Button from '~/components/common/Button.vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const goToDashboard = () => {
-  router.push('/dashboard')
+  router.push('/auth/quick-action')
 }
 </script>
 

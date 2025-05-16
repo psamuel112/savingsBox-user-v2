@@ -155,18 +155,14 @@
       <div class="flex justify-between items-center mt-8">
         <span class="text-[#808080] text-base">Need Help? Contact Us</span>
         <NuxtLink
-          to="#"
+          to="/dashboard"
           class="text-[#4169E6] text-base font-bold hover:underline"
           >Skip Now</NuxtLink
         >
       </div>
     </div>
-    <div>
-      <img
-        class="absolute bottom-0 pattern-bg"
-        src="../../assets/images/png/action-bg.png"
-      />
-    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[200px] bg-[url('../../assets/images/png/action-bg.png')] bg-no-repeat bg-cover bg-bottom pointer-events-none"></div>
+
   </div>
 </template>
 

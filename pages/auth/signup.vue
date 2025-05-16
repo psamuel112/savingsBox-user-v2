@@ -84,7 +84,7 @@
         <div class="mt-2 text-center">
           <p class="text-[#565656] text-sm">
             Already have an account?
-            <NuxtLink to="/signin" class="text-[#4169E6] text-[16px] hover:underline">Sign In</NuxtLink>
+            <NuxtLink to="/auth/login" class="text-[#4169E6] text-[16px] hover:underline">Sign In</NuxtLink>
           </p>
         </div>
         <div class="mt-8 text-center text-sm text-[#5A5A5A]">
@@ -109,6 +109,7 @@
 import { ref, computed } from 'vue'
 import InputField from '~/components/common/InputField.vue'
 import Button from '~/components/common/Button.vue'
+const router = useRouter()
 
 const form = ref({
   firstName: '',
@@ -148,6 +149,7 @@ const getStrengthClass = (index) => {
 const handleSubmit = () => {
   // Handle form submission here
   console.log('Form submitted:', form.value)
+  router.push('/auth/otp')
 }
 </script>
 

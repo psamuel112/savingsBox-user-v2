@@ -19,7 +19,7 @@
          <img class="gif" src="../../assets/images/gif/2fa.gif" alt="">
         </div>
         <p class="text-[#999C9F] text-[14px] md:text-[16px] mb-6">Add an extra layer of security to your account</p>
-        <Button variant="primary" className="w-full !bg-[#4169E6] !text-white !font-bold !text-[16px] !py-3 mb-6">
+        <Button @click="submit" variant="primary" className="w-full !bg-[#4169E6] !text-white !font-bold !text-[16px] !py-3 mb-6">
           Enable 2FA now
         </Button>
         <button class="text-[#4169E6] text-[14px] md:text-[16px] font-medium hover:underline mt-2">Remind me later</button>
@@ -30,6 +30,10 @@
 
 <script setup>
 import Button from '~/components/common/Button.vue'
+const router = useRouter()
+function submit() {
+  router.push('/auth/2fa-enter-code')
+}
 </script>
 
 <style scoped>

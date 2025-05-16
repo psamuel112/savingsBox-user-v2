@@ -17,15 +17,15 @@
         
         <!-- Action buttons -->
         <div class="flex flex-wrap gap-4">
-          <button class="bg-[#5C0099] gap-1 text-white p-3  rounded-lg flex items-center text-sm">
+          <button class="bg-[#5C0099] gap-1 text-white p-3  rounded-lg flex items-center text-sm" @click="$emit('fund-wallet')">
             <img src="../../assets/images/svg/fund-icon.svg" alt="wallet Logo" class="">
             Fund Wallet
           </button>
-          <button class="bg-[#4169E6] gap-1 text-white p-3 rounded-lg flex items-center text-sm">
+          <button class="bg-[#4169E6] gap-1 text-white p-3 rounded-lg flex items-center text-sm" @click="$emit('send-money')">
             <img src="../../assets/images/svg/send-icon.svg" alt="Send Logo" class="">
             Send Money
           </button>
-          <button class="bg-[#ECF0FC] gap-1 text-[#4169E6] p-3 rounded-lg flex items-center text-sm">
+          <button class="bg-[#ECF0FC] gap-1 text-[#4169E6] p-3 rounded-lg flex items-center text-sm" @click="$emit('withdraw')">
             <img src="../../assets/images/svg/withdraw-icon.svg" alt="withdraw Logo" class="">
             Withdraw
           </button>
