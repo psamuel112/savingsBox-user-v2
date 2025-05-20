@@ -12,7 +12,6 @@
       <div>
         <button class="relative w-10 h-10">
           <img src="../../assets/images/png/bell.png" alt="">
-   
         </button>
       </div>
     </header>

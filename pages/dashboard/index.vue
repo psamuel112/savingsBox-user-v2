@@ -1,19 +1,19 @@
 <template>
     <div>
-      <!-- Dashboard Header -->
+  
       <div class="flex items-center justify-between mb-6">
         <h1 class="text-[24px] font-bold text-[#000831]"><h4>My Dashboard</h4></h1>
         <div class="text-[#565656]"><p>WalletID:  <span class="text-primary font-bold">@Johndoe</span></p>
         </div>
       </div>
       
-      <!-- Wallet and Blog Cards (Side by Side) -->
+   
       <div class="flex   gap-6 mb-6">
         <WalletCard class="w-1/2" @fund-wallet="openFundWalletModal" @send-money="openSendMoneyModal" @withdraw="openWithdrawModal" />
         <BlogCard class="w-1/2" />
       </div>
       
-      <!-- Modals -->
+
       <FundWalletModal v-if="modalStep === 'fund-wallet'" @close="closeModal" @fund-virtual="openFundWithVirtualModal" @fund-card="openFundWithCardModal" />
       <FundWithVirtualAccountModal v-if="modalStep === 'fund-virtual'" @close="closeModal" @back="openFundWalletModal" />
       <FundWithCardModal v-if="modalStep === 'fund-card'" @close="closeModal" @back="openFundWalletModal" />
@@ -23,15 +23,15 @@
       <TransactionModal v-if="modalStep === 'transaction'" @close="closeModal" />
       <WithdrawalModal v-if="modalStep === 'withdraw'" @close="closeModal" @withdraw="closeModal" />
       
-      <!-- Products, Referral and Transactions (Side by Side) -->
+   
       <div class="flex gap-6">
-        <!-- Products and Referral (Column) -->
+        
         <div class="flex flex-col gap-6 w-1/2">
           <ProductsGrid />
           <ReferralCard />
         </div>
         
-        <!-- Transactions Section -->
+       
         <div class="w-1/2">
           <TransactionsSection />
         </div>

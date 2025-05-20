@@ -1,47 +1,114 @@
 <template>
-  <div class="p-6">
-    <div class="mb-5">
-      <h4 class="text-[24px] font-bold text-[#000831]">Banks & Cards</h4>
-      <p class="text-[#565656] text-[16px]">Manage your linked banks and cards</p>
+  <div class="mx-auto p-4">
+    <div class="flex items-center mb-8">
+      <button class="text-blue-600 mr-4">
+        <ChevronLeft class="w-5 h-5" />
+      </button>
+      <h1 class="text-2xl font-bold text-gray-900">Banks and Card</h1>
     </div>
-    
-    <div class="space-y-4">
-      <!-- Banks Section -->
-      <div class="bg-white rounded-lg p-4 shadow-sm">
-        <h5 class="font-semibold mb-3">Linked Banks</h5>
-        <div class="space-y-3">
-          <div class="flex justify-between items-center p-3 bg-[#F5F7FB] rounded-lg">
-            <div>
-              <p class="font-semibold">Guarantee Trust Bank</p>
-              <p class="text-sm text-[#6E6E6E]">****1234</p>
+    <div class="flex gap-4 justify-center mb-5">
+      <div class="bg-[#F5F5F5] rounded-[20px] p-4 inline-flex">
+        <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="[
+          'px-8 py-2 rounded-[16px] text-sm font-bold transition-colors',
+          activeTab === tab.id
+            ? 'bg-primary text-white'
+            : 'text-primary hover:bg-[#F5F5F5]'
+        ]">
+          {{ tab.name }}
+        </button>
+      </div>
+    </div>
+    <div v-if="activeTab === 'cards'" class="flex flex-col ">
+      <div class="flex flex-col  gap-4 p-4">
+        <div
+          class="max-w-[388px] card-bg flex justify-between items-center  rounded-[8px] py-6 px-3 relative overflow-hidden">
+
+          <div>
+            <div class="rounded-[8px] mb-2 inline-block backdrop-blur-lg bg-[#FFFFFF1A]  py-3 px-2">
+              <p class="text-white  font-bold mb-2">Sterling Bank</p>
+              <p class="text-white">5698 8393 8393 1934</p>
             </div>
-            <button class="text-[#4169E6] font-semibold">Remove</button>
+
+            <div class="flex ml-2 text-white text-sm">
+              <div class="mr-6 gap-2 flex items-center">
+                <p class="text-[#DDDDDD] text-[11px] ">EXP</p>
+                <p class="text-[#DDDDDD] text-[11px] font-bold">03/24</p>
+              </div>
+              <div class="flex gap-2 items-center">
+                <p class="text-[#DDDDDD] text-[11px]">CVV</p>
+                <p class="text-[#DDDDDD] text-[11px] font-bold">123</p>
+              </div>
+            </div>
           </div>
-          <div class="flex justify-between items-center p-3 bg-[#F5F7FB] rounded-lg">
-            <div>
-              <p class="font-semibold">Wema Bank</p>
-              <p class="text-sm text-[#6E6E6E]">****5678</p>
-            </div>
-            <button class="text-[#4169E6] font-semibold">Remove</button>
+          <div class="bg-[#FFFFFF] px-2 py-1 border border-[#E3E8EF] rounded-[4px]">
+            <img class="w-6" src="../../assets/images/png/Mastercard.png" alt="">
           </div>
         </div>
-        <button class="mt-4 w-full bg-[#4169E6] text-white py-3 rounded-[8px] font-bold">Add New Bank</button>
       </div>
 
-      <!-- Cards Section -->
-      <div class="bg-white rounded-lg p-4 shadow-sm">
-        <h5 class="font-semibold mb-3">Linked Cards</h5>
-        <div class="space-y-3">
-          <div class="flex justify-between items-center p-3 bg-[#F5F7FB] rounded-lg">
-            <div>
-              <p class="font-semibold">Visa Card</p>
-              <p class="text-sm text-[#6E6E6E]">****4321</p>
+      <!-- <div>
+        <div class="">
+          <img class="max-w-[270px]" src="../../assets/images/png/empty-bank.png" alt="">
+        </div>
+        <p class="text-[#6E6E6E] text-sm mb-6">No cards yet, Add a new card.</p>
+        <button class="flex items-center text-primary text-sm" @click="card = true">
+          <div class="w-5 h-5 rounded-full bg-primary text-white flex items-center justify-center mr-1">
+            <Plus class="w-6 h-6" />
+          </div>
+          Add New Card
+        </button>
+      </div> -->
+    </div>
+    <div v-if="activeTab === 'virtual'" class="flex flex-col">
+        <div
+          class="max-w-[340px] virtual-bg flex justify-between items-center  rounded-[12px] p-3 relative overflow-hidden">
+          <div>
+            <div class="">
+              <p class="text-[#FEFEFE] font-bold mb-1">Get new Virtual Account</p>
+              <p class="text-[#DDDDDD] text-[11px]">Generate new Virtual Account</p>
             </div>
-            <button class="text-[#4169E6] font-semibold">Remove</button>
+          </div>
+          <div class="">
+            <button class="bg-[#ECF0FC] text-[11px] text-primary p-3 rounded-[8px] border border-[#4169E6]">
+              Generate
+            </button>
           </div>
         </div>
-        <button class="mt-4 w-full bg-[#4169E6] text-white py-3 rounded-[8px] font-bold">Add New Card</button>
-      </div>
     </div>
+    <div v-if="activeTab === 'bank'" class="flex flex-col items-center">
+      <p class="text-gray-600">Bank Account content will go here</p>
+    </div>
+    <v-dialog v-model="card">
+      <AccountBankCard />
+    </v-dialog>
   </div>
-</template> 
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { ChevronLeft, Plus } from 'lucide-vue-next';
+import AccountBankCard from '~/components/account/AccountBankCard.vue';
+const card = ref(false)
+const tabs = [
+  { id: 'cards', name: 'Cards' },
+  { id: 'virtual', name: 'Virtual Account' },
+  { id: 'bank', name: 'Bank Account' }
+];
+
+const activeTab = ref('cards');
+</script>
+<style scoped>
+.card-bg {
+  background-image:
+    url('../../assets/images/png/card-bg.png'),
+    linear-gradient(90deg, #031051 0%, #001997 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.virtual-bg {
+
+  background: linear-gradient(90deg, #031051 0%, #001997 100%);
+
+}
+</style>

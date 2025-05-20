@@ -7,7 +7,7 @@
       <h2 class="text-[24px] font-bold mb-6 mt-4">{{ title }}</h2>
       <div class="flex justify-center mb-6">
         <div class="items-center justify-center">
-         <img class="w-[120px]" src="../../assets/images/gif/success.gif" />
+         <img class="w-[187px] " src="../../assets/images/gif/success.gif" />
         </div>
       </div>
       <p class="mb-2 text-[#232323] text-[16px]">{{ message }}</p>
@@ -22,7 +22,7 @@
 <script setup>
 const props = defineProps({
   title: { type: String, default: 'Plan Liquidated' },
-  message: { type: String, default: 'Your plan is successfully liquidated' },
+ // message: { type: String, default: 'Your plan is successfully liquidated' },
   subMessage: { type: String, default: 'The money in your SavingsBox plan will be sent back to your Wallet' },
   buttonText: { type: String, default: 'Go to Plans' }
 })

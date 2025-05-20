@@ -36,21 +36,21 @@
 
         <!-- Menu List -->
         <div class="space-y-4">
-            <NuxtLink to="/account/settings">
+            <div @click="navigateTo('/account/settings')">
                 <AccountMenuItem :icon="account" label="Account Settings" />
-            </NuxtLink>
-            <NuxtLink to="/account/transactions">
+            </div>
+            <div @click="navigateTo('/account/transactions')">
                 <AccountMenuItem :icon="transaction" label="Transactions" />
-            </NuxtLink>
-            <NuxtLink to="/account/banks-cards">
+            </div>
+            <div @click="navigateTo('/account/banks-cards')">
                 <AccountMenuItem :icon="bank" label="Banks & Cards" />
-            </NuxtLink>
-            <NuxtLink to="/account/notifications">
+            </div>
+            <div @click="navigateTo('/account/notifications')">
                 <AccountMenuItem :icon="notification" label="Notifications" />
-            </NuxtLink>
-            <NuxtLink to="/account/about">
+            </div>
+            <div @click="navigateTo('/account/about')">
                 <AccountMenuItem :icon="about" label="About Us" />
-            </NuxtLink>
+            </div>
             <AccountMenuItem :icon="logout" label="Logout" logout />
         </div>
     </div>

@@ -16,14 +16,17 @@
         @click="$emit('togglePassword')"
         class="absolute right-3 top-1/2 transform -translate-y-1/2"
       >
-        <i class="fas" :class="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+      <EyeOff v-if="showPassword" class="w-5 h-5 text-[#565656]" />
+      <Eye v-else class="w-5 h-5 text-[#565656]" />
       </button>
     </div>
     <slot></slot>
   </div>
 </template>
 
+
 <script setup>
+import { Eye, EyeOff } from 'lucide-vue-next'
 defineProps({
   modelValue: {
     type: [String, Number],

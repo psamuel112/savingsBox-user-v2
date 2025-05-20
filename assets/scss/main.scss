@@ -21,12 +21,18 @@ body {
   background-color: #fff;
   font-weight: 400;
 }
-p{
+
+p {
   font-weight: 400;
 }
 
 // Typography
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5rem;
@@ -44,7 +50,10 @@ a {
 }
 
 // Form Elements
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -59,28 +68,72 @@ input, button, textarea, select {
 }
 
 // Utility Classes
-.text-primary { color: var(--text-primary); }
-.text-secondary { color: var(--text-secondary); }
-.text-tertiary { color: var(--text-tertiary); }
+.text-primary {
+  color: var(--text-primary);
+}
 
-.bg-primary { background-color: var(--primary-color); }
-.bg-secondary { background-color: var(--secondary-color); }
+.text-secondary {
+  color: var(--text-secondary);
+}
 
-.flex-center { @include flex-center; }
-.flex-between { @include flex-between; }
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
 
 // Responsive
 @include responsive(mobile) {
   html {
     font-size: 14px;
   }
-} 
-.bg-primary{
+}
+
+.bg-primary {
   background-color: #4169E6;
 }
+
+.input {
+  border-radius: 8px;
+  border-width: 1px;
+  padding-right: 12px;
+  padding: 12px 12px 12px 12px;
+  background-color: #ECF0FC33;
+  border: 1px solid #DDDDDD;
+}
+
 primary {
   color: #4169E6;
 }
-text{
-  color: #2F2F2F ;
+
+text {
+  color: #2F2F2F;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #565656;
+}
+
+text-header {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000831;
 }

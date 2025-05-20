@@ -35,7 +35,7 @@
             @toggle-password="togglePassword"
           />
           <div class="flex justify-end">
-            <NuxtLink to="/auth/forgot-password" class="text-[#4169E6] text-[16px]  hover:underline">Forgot your Password?</NuxtLink>
+            <NuxtLink to="/auth/forgot-password" class="text-[#4169E6] text-[16px] hover:underline">Forgot your Password?</NuxtLink>
           </div>
           <Button type="submit" variant="primary" className="w-full !bg-[#4169E6] !text-white !font-bold !text-[16px] !py-3">
             Login
@@ -44,7 +44,7 @@
         <div class="mt-6 text-center">
           <p class="text-[#565656] text-[14px] md:text-[16px]">
             Don't have an account?
-            <NuxtLink to="/auth/signup" class="text-[#4169E6] text-[14px] md:text-[16px]  hover:underline">Sign Up</NuxtLink>
+            <NuxtLink to="/auth/signup" class="text-[#4169E6] text-[14px] md:text-[16px] hover:underline">Sign Up</NuxtLink>
           </p>
         </div>
       </div>

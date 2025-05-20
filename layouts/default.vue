@@ -1,5 +1,6 @@
 <template>
-    <div class="flex min-h-screen bg-white">
+    <v-app>
+   <div class="flex min-h-screen bg-white">
       <!-- Sidebar -->
       <Sidebar />
       
@@ -14,6 +15,7 @@
         </div>
       </div>
     </div>
+  </v-app>
   </template>
   
   <script setup>

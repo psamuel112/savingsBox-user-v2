@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h1>Welcome to My Nuxt.js App</h1>
-    <p>This is a fresh start for your application.</p>
-  </div>
+  <NuxtLayout>
+    <v-app>
+      <NuxtPage />
+    </v-app>
+  </NuxtLayout>
 </template>
+
 
 <script setup>
 // Your component logic here

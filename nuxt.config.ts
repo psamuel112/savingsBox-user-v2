@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
 
   css: [
-    'vuetify/lib/styles/main.sass',
+    'vuetify/styles',
     '~/assets/css/tailwind.css',      // <-- Add this line
     '~/assets/scss/main.scss'
   ],
