@@ -1,61 +1,74 @@
 <template>
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div class="bg-white rounded-lg shadow-md p-6 max-w-md w-full">
-        <h1 class="text-xl font-bold text-gray-900 mb-4">Virtual Account</h1>
-        <p class="text-gray-600 mb-6">
-          Generate a virtual account to fund your wallet through bank transfers.
-        </p>
+  <div class="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-2xl w-full max-w-md relative shadow-xl">
+      <!-- Close button -->
+      <button 
+        @click="closeModal" 
+        class="absolute top-4 right-4 text-blue-600 hover:text-blue-800"
+      >
+        <X class="w-5 h-5" />
+      </button>
+      
+      <!-- Modal content -->
+      <div class="p-6 pt-12">
+        <!-- Header -->
+        <div class="text-center mb-6">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Generate Virtual Account</h2>
+          <p class="text-gray-500 text-sm px-4">
+            Enter the information below to generate virtual account. This account will be used to fund your wallet through bank transfers
+          </p>
+        </div>
         
-        <button 
-          @click="showModal = true"
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors"
-        >
-          Generate Virtual Account
-        </button>
-        
-        <div v-if="accountDetails" class="mt-8 border-t pt-6">
-          <h2 class="text-lg font-semibold text-gray-900 mb-4">Your Virtual Account</h2>
-          <div class="bg-gray-50 rounded-lg p-4">
-            <div class="mb-3">
-              <p class="text-sm text-gray-500">Account Name</p>
-              <p class="font-medium">{{ accountDetails.name }}</p>
-            </div>
-            <div class="mb-3">
-              <p class="text-sm text-gray-500">Account Number</p>
-              <p class="font-medium">{{ accountDetails.number }}</p>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Bank</p>
-              <p class="font-medium">{{ accountDetails.bank }}</p>
+        <form @submit.prevent="generateAccount">
+          <!-- Bank Selection -->
+          <div class="mb-6">
+            <label for="bank" class="block text-gray-700 mb-2">Choose a Bank</label>
+            <div class="relative">
+              <select
+                id="bank"
+                v-model="selectedBank"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              >
+                <option value="gtb">GTB (Guarantee Trust Bank)</option>
+                <option value="first-bank">First Bank</option>
+                <option value="zenith">Zenith Bank</option>
+                <option value="access">Access Bank</option>
+                <option value="uba">UBA</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <ChevronDown class="w-5 h-5 text-blue-600" />
+              </div>
             </div>
           </div>
-        </div>
+          
+          <!-- Generate Button -->
+          <button 
+            type="submit" 
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors"
+          >
+            Generate Virtual Account
+          </button>
+        </form>
       </div>
-      
-      <GenerateVirtualAccountModal 
-        v-if="showModal" 
-        @close="showModal = false"
-        @generate-account="handleGenerateAccount"
-      />
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  import GenerateVirtualAccountModal from '@/components/GenerateVirtualAccountModal.vue';
-  
-  const showModal = ref(false);
-  const accountDetails = ref(null);
-  
-  const handleGenerateAccount = (data) => {
-    // Simulate API call to generate virtual account
-    setTimeout(() => {
-      accountDetails.value = {
-        name: 'John Doe',
-        number: '0123456789',
-        bank: data.bank === 'gtb' ? 'GTB (Guarantee Trust Bank)' : 'Other Bank'
-      };
-      showModal.value = false;
-    }, 1000);
-  };
-  </script>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { X, ChevronDown } from 'lucide-vue-next';
+
+const emit = defineEmits(['close', 'generate-account']);
+
+const selectedBank = ref('gtb');
+
+const generateAccount = () => {
+  emit('generate-account', {
+    bank: selectedBank.value
+  });
+};
+
+const closeModal = () => {
+  emit('close');
+};
+</script>

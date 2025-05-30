@@ -11,7 +11,7 @@
         <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="[
           'px-8 py-2 rounded-[16px] text-sm font-bold transition-colors',
           activeTab === tab.id
-            ? 'bg-primary text-white'
+            ? 'bg-[#4169E6] text-white'
             : 'text-primary hover:bg-[#F5F5F5]'
         ]">
           {{ tab.name }}
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div v-if="activeTab === 'cards'" class="flex flex-col ">
-      <div class="flex flex-col  gap-4 p-4">
+      <div class="flex flex-col ">
         <div
           class="max-w-[388px] card-bg flex justify-between items-center  rounded-[8px] py-6 px-3 relative overflow-hidden">
 
@@ -60,7 +60,28 @@
       </div> -->
     </div>
     <div v-if="activeTab === 'virtual'" class="flex flex-col">
-        <div
+      <div class="flex flex-col ">
+        <div class="max-w-[388px] virtual-card-bg items-center  rounded-[8px] py-6 px-3 relative overflow-hidden">
+          <div>
+            <div class="">
+              <p class="text-[#FEFEFE]  font-bold mb-2">Sterling Bank</p>
+              <p class="text-[#DDDDDD] mb-2">John Doe M.</p>
+
+
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-[#FEFEFE]  font-bold ">002883936</p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="white">
+              <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-primary text-sm mt-3">Are you having issues with the bank you added?</p>
+      <!-- <div
           class="max-w-[340px] virtual-bg flex justify-between items-center  rounded-[12px] p-3 relative overflow-hidden">
           <div>
             <div class="">
@@ -69,17 +90,31 @@
             </div>
           </div>
           <div class="">
-            <button class="bg-[#ECF0FC] text-[11px] text-primary p-3 rounded-[8px] border border-[#4169E6]">
+            <button @click="virtual = true" class="bg-[#ECF0FC] text-[11px] text-primary p-3 rounded-[8px] border border-[#4169E6]">
               Generate
             </button>
           </div>
-        </div>
+        </div> -->
     </div>
-    <div v-if="activeTab === 'bank'" class="flex flex-col items-center">
-      <p class="text-gray-600">Bank Account content will go here</p>
+    <div v-if="activeTab === 'bank'" class="flex flex-col justify-center items-center">
+     <div class="flex flex-col justify-center">
+        <div class="">
+          <img class="max-w-[270px]" src="../../assets/images/gif/bank.gif" alt="">
+        </div>
+        <p class="text-[#6E6E6E] text-sm mb-5">No Bank Account, Add a new Bank Account.</p>
+        <button class="flex justify-center text-center items-center text-primary text-sm" @click="card = true">
+          <div class="w-5 h-5 rounded-full bg-primary text-white flex items-center justify-center mr-1">
+            <Plus class="w-6 h-6" />
+          </div>
+          Add Bank Account
+        </button>
+      </div> 
     </div>
     <v-dialog v-model="card">
       <AccountBankCard />
+    </v-dialog>
+    <v-dialog v-model="virtual">
+      <AccountVirtualGenerate />
     </v-dialog>
   </div>
 </template>
@@ -88,7 +123,9 @@
 import { ref } from 'vue';
 import { ChevronLeft, Plus } from 'lucide-vue-next';
 import AccountBankCard from '~/components/account/AccountBankCard.vue';
-const card = ref(false)
+import AccountVirtualGenerate from '~/components/account/AccountVirtualGenerate.vue';
+const card = ref(false);
+const virtual = ref(false);
 const tabs = [
   { id: 'cards', name: 'Cards' },
   { id: 'virtual', name: 'Virtual Account' },
@@ -106,9 +143,19 @@ const activeTab = ref('cards');
   background-position: center;
 }
 
+.virtual-card-bg {
+  background-image:
+    url('../../assets/images/png/card-bg.png'),
+    linear-gradient(rgba(65, 105, 230, 1), rgba(65, 105, 230, 1));
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
 .virtual-bg {
-
   background: linear-gradient(90deg, #031051 0%, #001997 100%);
-
 }
 </style>

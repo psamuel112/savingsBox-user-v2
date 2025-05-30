@@ -9,7 +9,7 @@
         </div>
 
         <!-- Profile Card -->
-        <div class="card-bg rounded-[8px] py-10 px-3 flex flex-col items-center mb-8 relative">
+        <div class="account-bg rounded-[8px] py-10 px-3 flex flex-col items-center mb-8 relative">
             <!-- Profile & Details -->
             <div class="bg-white profile rounded-full w-24 h-24 border-2 border-[#4169E6] p-1 mb-2">
                 <img src="/assets/images/png/profile-image.png" class="w-full h-full object-cover rounded-full"
@@ -67,12 +67,5 @@ import AccountMenuItem from '~/components/account/AccountMenuItem.vue';
 </script>
 
 <style scoped>
-.card-bg {
-    background: #ECF0FC url('../../assets/images/png/profile-bg.png') no-repeat center center;
-    background-size: cover;
-}
 
-.profile {
-    border: 1px solid #4169E6;
-}
 </style>

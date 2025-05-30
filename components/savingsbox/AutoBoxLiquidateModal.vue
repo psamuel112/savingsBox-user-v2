@@ -1,6 +1,6 @@
 <template>
   <div class="fixed inset-0 z-50 flex items-center justify-center bg-[#00083133] bg-opacity-30">
-    <div class="bg-white rounded-[20px] w-full max-w-[430px] relative p-8">
+    <div class="bg-white rounded-[20px] w-full max-w-[430px] max-h-[90vh] overflow-y-auto p-8">
       <button class="absolute top-6 right-6 w-12 h-12 text-[#A1A1A1] text-2xl" @click="$emit('close')">
         <span>&times;</span>
       </button>

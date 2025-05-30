@@ -18,6 +18,7 @@
         <AccountCreatePassword />
       </v-dialog>
     </div>
+    
   </template>
   
   <script setup>
@@ -26,6 +27,7 @@
   import pin from "/assets/images/svg/pin-icon.svg";
   import AccountMenuItem from '~/components/account/AccountMenuItem.vue';
   import AccountCreatePassword from "~/components/account/AccountCreatePassword.vue";
+
   import { ref } from "vue";
 const dialogOpen = ref(false);
   </script> 

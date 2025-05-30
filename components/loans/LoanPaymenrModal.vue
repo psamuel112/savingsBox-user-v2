@@ -9,7 +9,7 @@
                 </svg>
             </button>
             <div class="px-8 mt-8 pt-10 pb-8">
-                <h2 class="text-[24px] text font-bold text-center mb-2">AutoBox Savings Plan</h2>
+                <h2 class="text-[24px] text font-bold text-center mb-2">SME Loan Application</h2>
                 <div class="flex items-center justify-center mb-8">
                     <div class="w-3/4">
                         <div class="flex items-center gap-2">

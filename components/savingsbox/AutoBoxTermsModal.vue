@@ -1,6 +1,6 @@
 <template>
     <div class="fixed card-bg inset-0 z-50 flex items-center justify-center bg-[#00083133] bg-opacity-30">
-        <div class="bg-white rounded-[20px] w-full max-w-[607px] relative p-0">
+        <div class="bg-white rounded-[20px] w-full max-w-[607px] max-h-[90vh] overflow-y-auto p-0">
             <div class="bg-[#2346A9] rounded-t-[20px] px-8 py-10 flex items-center justify-between">
                 <div class="text-white text-[24px] font-bold">AutoBox</div>
                 <button class="bg-white text-[#4169E6] text-[20px] w-12 h-12 rounded-[40px]" @click="$emit('close')">&times;</button>
