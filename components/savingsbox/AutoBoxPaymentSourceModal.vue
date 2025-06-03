@@ -65,7 +65,7 @@
                                     alt="" class="w-6 h-6"></span> Bind New Card
                         </div>
                     </div>
-                    <button type="submit" :disabled="!selectedCard"
+                    <button type="submit" :disabled="!selectedCard" @click="$emit('continue')"
                         :class="['w-full py-3 rounded-[8px] font-bold mt-8', selectedCard ? 'bg-[#4169E6] text-white' : 'bg-[#DDDDDD] text-[#A1A1A1]']">Next</button>
                 </form>
             </div>

@@ -19,11 +19,11 @@
         <li v-for="item in menuItems" :key="item.path">
           <router-link :to="item.path" 
             :class="[
-              'flex items-center px-4 py-3 rounded-lg',
-              $route.path === item.path ? 'text-blue-600 bg-blue-50' : 'text-gray-600 hover:bg-gray-100'
+              'flex items-center px-4 py-3 rounded-lg  no-underline hover:no-underline',
+              $route.path === item.path ? 'text-primary bg-[#ECF0FC]' : 'text-gray-600 hover:bg-gray-100'
             ]"
           >
-            <component :is="item.icon" class="h-5 w-5" :class="isCollapsed ? '' : 'mr-3'" />
+            <component :is="item.icon" class="h-6 w-6" :class="isCollapsed ? '' : 'mr-3'" />
             <span v-if="!isCollapsed">{{ item.label }}</span>
           </router-link>
         </li>
@@ -63,11 +63,11 @@
             <router-link :to="item.path" 
               @click="isMobileMenuOpen = false"
               :class="[
-                'flex items-center px-4 py-3 rounded-lg',
-                $route.path === item.path ? 'text-blue-600 bg-blue-50' : 'text-gray-600 hover:bg-gray-100'
+                'flex items-center px-4 py-3 rounded-lg  no-underline hover:no-underline',
+                $route.path === item.path ? 'text-primary bg-[#ECF0FC]' : 'text-gray-600 hover:bg-gray-100'
               ]"
             >
-              <component :is="item.icon" class="h-5 w-5 mr-3" />
+              <component :is="item.icon" class="h-6 w-6 mr-3" />
               <span>{{ item.label }}</span>
             </router-link>
           </li>

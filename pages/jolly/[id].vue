@@ -107,17 +107,24 @@
       </div>
      <CreateJolly v-if="showCreateJolly" @close="showCreateJolly = false" @continue="handleChooseJolly"/>
      <ChooseJolly v-if="showChooseJolly" @continue="handleContinuePayment"/>
-     <AutoBoxPaymentSourceModal v-if="showJollyPayment"/>
+     <AutoBoxPaymentSourceModal v-if="showJollyPayment" @continue="handleApplyJolly"/>
+     <ApplyJolly v-if="showApplyJolly" @continue="handleSuccessModal"/>
+     <AutoBoxSuccessModal title="Jolly Plan Created" buttonText="View My Jolly Plans" subMessage="You have successfully created and joined a Jolly Plan" v-if="showSuccessModal" @close="showSuccessModal = false"/>
     </div>
   </template>
   
   <script setup>
+   import { ref } from 'vue';
   import { ChevronLeft } from 'lucide-vue-next';
 import CreateJolly from '~/components/jolly/CreateJolly.vue';
 import ChooseJolly from '~/components/jolly/ChooseJolly.vue';
+import ApplyJolly from '~/components/jolly/ApplyJolly.vue';
 import AutoBoxPaymentSourceModal from '~/components/savingsbox/AutoBoxPaymentSourceModal.vue';
+import AutoBoxSuccessModal from '~/components/savingsbox/AutoBoxSuccessModal.vue';
 const showCreateJolly = ref(false);
+const showApplyJolly = ref(false);
 const showChooseJolly = ref(false);
+const showSuccessModal = ref(false);
 const showJollyPayment = ref(false)
 function handleChooseJolly() {
    showCreateJolly.value = false;
@@ -126,5 +133,14 @@ function handleChooseJolly() {
 function handleContinuePayment() {
     showChooseJolly.value = false;
     showJollyPayment.value = true;
+}
+function handleApplyJolly() {
+  console.log('Applying for Jolly');
+    showJollyPayment.value = false;
+    showApplyJolly.value = true;
+}
+function handleSuccessModal() {
+    showApplyJolly.value = false;
+    showSuccessModal.value = true;
 }
   </script>
